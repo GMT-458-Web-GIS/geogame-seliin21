@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoAce Turkey</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="app">
+        <aside id="menu">
+            <h1>GeoAce TURKEY</h1>
+            <ul>
+                <li><a href="#">Categories</a></li>
+                <div id="legend">
+                    
+                    <ul>
+                        <li><span class="legend-color blue"></span> General Knowledge</li>
+                        <li><span class="legend-color red"></span> Food</li>
+                        <li><span class="legend-color green"></span> Geography</li>
+                        <li><span class="legend-color grey"></span> Answered Questions</li>
+                    </ul>
+                </div>
+                
+            </ul>
+            <div id="scoreboard">
+                <p>POINT: <span id="points">0</span></p>
+                <p>Remaining Time: <span id="time">10:00</span></p>
+            </div>
+            <button id="logout">LOGOUT</button>
+        </aside>
+        <main id="map-container">
+            <div id="map"></div>
+        </main>
+    </div>
+</body>
+</html>
