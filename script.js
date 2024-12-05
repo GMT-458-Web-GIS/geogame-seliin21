@@ -107,12 +107,13 @@ let timeRemaining = 300; // 10 minutes in seconds
 const timer = setInterval(() => {
     if (timeRemaining <= 0) {
         clearInterval(timer);
-        alert("Time's up!");
+        showGameOverPopup(); // Süre bittiğinde popup göster
     } else {
         timeRemaining--;
-        document.getElementById('time').innerText = `${Math.floor(timeRemaining / 60)}:${timeRemaining % 60}`;
+        document.getElementById('time').innerText = `${Math.floor(timeRemaining / 60)}:${String(timeRemaining % 60).padStart(2, '0')}`;
     }
 }, 1000);
+
 
 let points = 0;
 
@@ -349,4 +350,29 @@ function startGame(category) {
 }
 
 
+function showGameOverPopup() {
+    const answeredCount = answeredMarkers.size; 
 
+    const gameOverPopup = document.createElement('div');
+    gameOverPopup.id = 'game-over-popup';
+    gameOverPopup.innerHTML = `
+        <div class="popup-content">
+            <h2>Congratulations!</h2>
+            <p>You have completed the game!</p>
+            <p><b>Answered Questions:</b> ${answeredCount}</p>
+            <p><b>Your Score:</b> ${points}</p>
+            <button id="restart-game">Play Again</button>
+        </div>
+    `;
+    document.body.appendChild(gameOverPopup);
+
+
+    document.getElementById('restart-game').addEventListener('click', () => {
+        location.reload(); 
+    });
+}
+
+document.getElementById('end-game').addEventListener('click', () => {
+    clearInterval(timer); // Zamanlayıcıyı durdur
+    showGameOverPopup(); // Popup'u göster
+});
