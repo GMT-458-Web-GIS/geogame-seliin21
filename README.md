@@ -1,3 +1,5 @@
+# Here is the game: 
+https://gmt-458-web-gis.github.io/geogame-seliin21/
 
 # GEOACE TURKEY QUIZ GAME
 
